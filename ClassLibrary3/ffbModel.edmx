@@ -1,0 +1,1433 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="dbFFBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Breeder">
+          <Key>
+            <PropertyRef Name="BreederID" />
+          </Key>
+          <Property Name="BreederID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BreederName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="BreederAddress" Type="varchar" MaxLength="100" />
+          <Property Name="BreederCity" Type="varchar" MaxLength="50" />
+          <Property Name="BreederState" Type="varchar" MaxLength="25" />
+          <Property Name="BreederZip" Type="varchar" MaxLength="11" />
+          <Property Name="BreederEmail" Type="varchar" MaxLength="50" />
+          <Property Name="BreederKennel" Type="varchar" MaxLength="100" />
+          <Property Name="BreederWebSite" Type="varchar" MaxLength="100" />
+          <Property Name="BreederPhone" Type="varchar" MaxLength="12" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="LastUpdateID" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="LastUpdateTimeStamp" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Breeding">
+          <Key>
+            <PropertyRef Name="BreedingID" />
+          </Key>
+          <Property Name="BreedingID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BreedingSire_dogID" Type="int" Nullable="false" />
+          <Property Name="BreedingDam_dogID" Type="int" Nullable="false" />
+          <Property Name="BreedingVet" Type="varchar" MaxLength="50" />
+          <Property Name="HeatID" Type="int" />
+          <Property Name="InseminationDate" Type="datetime" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="LastUpdateID" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="LastUpdateTimeStamp" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Dog">
+          <Key>
+            <PropertyRef Name="DogID" />
+          </Key>
+          <Property Name="DogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AKCDogId" Type="varchar" MaxLength="15" />
+          <Property Name="AKCDogName" Type="varchar" MaxLength="50" />
+          <Property Name="AKCRegCertficateDate" Type="datetime" />
+          <Property Name="Microchip_Num" Type="varchar" MaxLength="50" />
+          <Property Name="CoatColor" Type="varchar" MaxLength="20" />
+          <Property Name="Markings" Type="varchar" MaxLength="20" />
+          <Property Name="Gender" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="DogName" Type="varchar" MaxLength="50" />
+          <Property Name="LitterId" Type="int" />
+          <Property Name="DogOwnerID" Type="int" />
+          <Property Name="BreederID" Type="int" />
+          <Property Name="BirthDate" Type="date" />
+          <Property Name="EarsUpStayUpDate" Type="datetime" />
+          <Property Name="DeceasedDate" Type="datetime" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="LastUpdateID" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="LastUpdateTimeStamp" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DogDocument">
+          <Key>
+            <PropertyRef Name="DogDocumentID" />
+          </Key>
+          <Property Name="DogDocumentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DogID" Type="int" Nullable="false" />
+          <Property Name="FileName" Type="varchar" MaxLength="50" />
+          <Property Name="FileNameDescription" Type="varchar" MaxLength="50" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="LastUpdateID" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="LastUpdateTimeStamp" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DogOwner">
+          <Key>
+            <PropertyRef Name="DogOwnerID" />
+          </Key>
+          <Property Name="DogOwnerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OwnerName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="OwnerAddress" Type="varchar" MaxLength="100" />
+          <Property Name="OwnerCity" Type="varchar" MaxLength="50" />
+          <Property Name="OwnerState" Type="varchar" MaxLength="25" />
+          <Property Name="OwnerZip" Type="varchar" MaxLength="11" />
+          <Property Name="OwnerEmail" Type="varchar" MaxLength="50" />
+          <Property Name="OwnerPhone" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="LastUpdateID" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="LastUpdateTimeStamp" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DogPhoto">
+          <Key>
+            <PropertyRef Name="DogPhotoID" />
+          </Key>
+          <Property Name="DogPhotoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DogID" Type="int" Nullable="false" />
+          <Property Name="Photo" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Notes" Type="varchar" MaxLength="500" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="LastUpdateID" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="LastUpdateTimeStamp" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DogPhotoDocument">
+          <Key>
+            <PropertyRef Name="DogPhotoDocumentID" />
+          </Key>
+          <Property Name="DogPhotoDocumentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DogPhotoID" Type="int" Nullable="false" />
+          <Property Name="FileName" Type="varchar" MaxLength="50" />
+          <Property Name="FileNameDescription" Type="varchar" MaxLength="50" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="LastUpdateID" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="LastUpdateTimeStamp" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DogSalePayment">
+          <Key>
+            <PropertyRef Name="DogSalePayID" />
+          </Key>
+          <Property Name="DogSalePayID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DogSalesID" Type="int" Nullable="false" />
+          <Property Name="Amount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="DateReceived" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="LastUpdateID" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="LastUpdateTimeStamp" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DogSalePaymentDocument">
+          <Key>
+            <PropertyRef Name="DogSalePaymentDocumentID" />
+          </Key>
+          <Property Name="DogSalePaymentDocumentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DogSalePayID" Type="int" Nullable="false" />
+          <Property Name="FileName" Type="varchar" MaxLength="50" />
+          <Property Name="FileNameDescription" Type="varchar" MaxLength="50" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="LastUpdateID" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="LastUpdateTimeStamp" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DogSales">
+          <Key>
+            <PropertyRef Name="DogSalesID" />
+          </Key>
+          <Property Name="DogSalesID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DogID" Type="int" Nullable="false" />
+          <Property Name="SalesPrice" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="DateContractMailed" Type="datetime" Nullable="false" />
+          <Property Name="DogSaleDate" Type="datetime" />
+          <Property Name="DogSaleNotes" Type="varchar" MaxLength="1000" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="LastUpdateID" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="LastUpdateTimeStamp" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DogSalesDocument">
+          <Key>
+            <PropertyRef Name="DogSalesDocumentID" />
+          </Key>
+          <Property Name="DogSalesDocumentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DogSalesID" Type="int" Nullable="false" />
+          <Property Name="FileName" Type="varchar" MaxLength="50" />
+          <Property Name="FileNameDescription" Type="varchar" MaxLength="50" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="LastUpdateID" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="LastUpdateTimeStamp" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DogWeight">
+          <Key>
+            <PropertyRef Name="DogWeightID" />
+          </Key>
+          <Property Name="DogWeightID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DogID" Type="int" Nullable="false" />
+          <Property Name="Weight_lbs" Type="int" Nullable="false" />
+          <Property Name="Weitht_oz" Type="int" Nullable="false" />
+          <Property Name="WeightDate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="LastUpdateID" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="LastUpdateTimeStamp" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DogWeightDocument">
+          <Key>
+            <PropertyRef Name="DogWeightDocumentID" />
+          </Key>
+          <Property Name="DogWeightDocumentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DogWeightID" Type="int" Nullable="false" />
+          <Property Name="FileName" Type="varchar" MaxLength="50" />
+          <Property Name="FileNameDescription" Type="varchar" MaxLength="50" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="LastUpdateID" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="LastUpdateTimeStamp" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Females_Heat">
+          <Key>
+            <PropertyRef Name="HeatID" />
+          </Key>
+          <Property Name="HeatID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FemaleDogID" Type="int" Nullable="false" />
+          <Property Name="HeatDateStart" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="LastUpdateID" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="LastUpdateTimeStamp" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Litter">
+          <Key>
+            <PropertyRef Name="LitterID" />
+          </Key>
+          <Property Name="LitterID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AKCLitter" Type="varchar" MaxLength="15" />
+          <Property Name="Sire_dogID" Type="int" Nullable="false" />
+          <Property Name="Dam_dogID" Type="int" Nullable="false" />
+          <Property Name="LitterFemales" Type="int" Nullable="false" />
+          <Property Name="LitterMales" Type="int" Nullable="false" />
+          <Property Name="DeliverVet" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="WhelpDate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="LastUpdateID" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="LastUpdateTimeStamp" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LitterDocument">
+          <Key>
+            <PropertyRef Name="LitterDocumentID" />
+          </Key>
+          <Property Name="LitterDocumentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LitterID" Type="int" Nullable="false" />
+          <Property Name="FileName" Type="varchar" MaxLength="50" />
+          <Property Name="FileNameDescription" Type="varchar" MaxLength="50" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="LastUpdateID" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="LastUpdateTimeStamp" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="MessageID" />
+          </Key>
+          <Property Name="MessageID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="MessageDate" Type="datetime" Nullable="false" />
+          <Property Name="From" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Subject" Type="varchar" MaxLength="150" />
+          <Property Name="Message" Type="varchar" MaxLength="1500" Nullable="false" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="LastUpdateID" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="LastUpdateTimeStamp" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OwnerDocument">
+          <Key>
+            <PropertyRef Name="OwnerDocumentID" />
+          </Key>
+          <Property Name="OwnerDocumentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DogOwnerID" Type="int" Nullable="false" />
+          <Property Name="FileName" Type="varchar" MaxLength="50" />
+          <Property Name="FileNameDescription" Type="varchar" MaxLength="50" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="LastUpdateID" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="LastUpdateTimeStamp" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SettingT">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Key" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Value" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="StatusT">
+          <Key>
+            <PropertyRef Name="StatusID" />
+          </Key>
+          <Property Name="StatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\USERRANDY\APPDATA\LOCAL\MICROSOFT\VISUALSTUDIO\SSDT\DBFFB.MDF.dbo.vw_activeFemales' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_activeFemales">
+          <Key>
+            <PropertyRef Name="DogID" />
+          </Key>
+          <Property Name="DogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DogName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\USERRANDY\APPDATA\LOCAL\MICROSOFT\VISUALSTUDIO\SSDT\DBFFB.MDF.dbo.vw_activeMales' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_activeMales">
+          <Key>
+            <PropertyRef Name="DogID" />
+          </Key>
+          <Property Name="DogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DogName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\USERRANDY\APPDATA\LOCAL\MICROSOFT\VISUALSTUDIO\SSDT\DBFFB.MDF.dbo.vw_cboSearchLitters' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_cboSearchLitters">
+          <Key>
+            <PropertyRef Name="LitterID" />
+          </Key>
+          <Property Name="LitterID" Type="int" Nullable="false" />
+          <Property Name="Yr" Type="int" />
+          <Property Name="WY_sireDam" Type="varchar" MaxLength="103" />
+        </EntityType>
+        <Association Name="FK_DogDocument_Dog">
+          <End Role="Dog" Type="Self.Dog" Multiplicity="1" />
+          <End Role="DogDocument" Type="Self.DogDocument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dog">
+              <PropertyRef Name="DogID" />
+            </Principal>
+            <Dependent Role="DogDocument">
+              <PropertyRef Name="DogID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DogPhoto_Dog">
+          <End Role="Dog" Type="Self.Dog" Multiplicity="1" />
+          <End Role="DogPhoto" Type="Self.DogPhoto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dog">
+              <PropertyRef Name="DogID" />
+            </Principal>
+            <Dependent Role="DogPhoto">
+              <PropertyRef Name="DogID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DogPhotoDocument_DogPhoto">
+          <End Role="DogPhoto" Type="Self.DogPhoto" Multiplicity="1" />
+          <End Role="DogPhotoDocument" Type="Self.DogPhotoDocument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DogPhoto">
+              <PropertyRef Name="DogPhotoID" />
+            </Principal>
+            <Dependent Role="DogPhotoDocument">
+              <PropertyRef Name="DogPhotoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DogSalePayment_DogSalesID">
+          <End Role="DogSales" Type="Self.DogSales" Multiplicity="1" />
+          <End Role="DogSalePayment" Type="Self.DogSalePayment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DogSales">
+              <PropertyRef Name="DogSalesID" />
+            </Principal>
+            <Dependent Role="DogSalePayment">
+              <PropertyRef Name="DogSalesID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DogSalePaymentDocument_DogSalePayment">
+          <End Role="DogSalePayment" Type="Self.DogSalePayment" Multiplicity="1" />
+          <End Role="DogSalePaymentDocument" Type="Self.DogSalePaymentDocument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DogSalePayment">
+              <PropertyRef Name="DogSalePayID" />
+            </Principal>
+            <Dependent Role="DogSalePaymentDocument">
+              <PropertyRef Name="DogSalePayID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DogSales_Dog">
+          <End Role="Dog" Type="Self.Dog" Multiplicity="1" />
+          <End Role="DogSales" Type="Self.DogSales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dog">
+              <PropertyRef Name="DogID" />
+            </Principal>
+            <Dependent Role="DogSales">
+              <PropertyRef Name="DogID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DogSalesDocument_DogSales">
+          <End Role="DogSales" Type="Self.DogSales" Multiplicity="1" />
+          <End Role="DogSalesDocument" Type="Self.DogSalesDocument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DogSales">
+              <PropertyRef Name="DogSalesID" />
+            </Principal>
+            <Dependent Role="DogSalesDocument">
+              <PropertyRef Name="DogSalesID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DogWeight_Dog">
+          <End Role="Dog" Type="Self.Dog" Multiplicity="1" />
+          <End Role="DogWeight" Type="Self.DogWeight" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dog">
+              <PropertyRef Name="DogID" />
+            </Principal>
+            <Dependent Role="DogWeight">
+              <PropertyRef Name="DogID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DogWeightDocument_DogWeight">
+          <End Role="DogWeight" Type="Self.DogWeight" Multiplicity="1" />
+          <End Role="DogWeightDocument" Type="Self.DogWeightDocument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DogWeight">
+              <PropertyRef Name="DogWeightID" />
+            </Principal>
+            <Dependent Role="DogWeightDocument">
+              <PropertyRef Name="DogWeightID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Females_Heat">
+          <End Role="Dog" Type="Self.Dog" Multiplicity="1" />
+          <End Role="Females_Heat" Type="Self.Females_Heat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dog">
+              <PropertyRef Name="DogID" />
+            </Principal>
+            <Dependent Role="Females_Heat">
+              <PropertyRef Name="FemaleDogID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HeatID">
+          <End Role="Females_Heat" Type="Self.Females_Heat" Multiplicity="0..1" />
+          <End Role="Breeding" Type="Self.Breeding" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Females_Heat">
+              <PropertyRef Name="HeatID" />
+            </Principal>
+            <Dependent Role="Breeding">
+              <PropertyRef Name="HeatID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LitterDocument_Litter">
+          <End Role="Litter" Type="Self.Litter" Multiplicity="1" />
+          <End Role="LitterDocument" Type="Self.LitterDocument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Litter">
+              <PropertyRef Name="LitterID" />
+            </Principal>
+            <Dependent Role="LitterDocument">
+              <PropertyRef Name="LitterID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OwnerDocument_DogOwner">
+          <End Role="DogOwner" Type="Self.DogOwner" Multiplicity="1" />
+          <End Role="OwnerDocument" Type="Self.OwnerDocument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DogOwner">
+              <PropertyRef Name="DogOwnerID" />
+            </Principal>
+            <Dependent Role="OwnerDocument">
+              <PropertyRef Name="DogOwnerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="dbFFBModelStoreContainer">
+          <EntitySet Name="Breeder" EntityType="Self.Breeder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Breeding" EntityType="Self.Breeding" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dog" EntityType="Self.Dog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DogDocument" EntityType="Self.DogDocument" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DogOwner" EntityType="Self.DogOwner" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DogPhoto" EntityType="Self.DogPhoto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DogPhotoDocument" EntityType="Self.DogPhotoDocument" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DogSalePayment" EntityType="Self.DogSalePayment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DogSalePaymentDocument" EntityType="Self.DogSalePaymentDocument" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DogSales" EntityType="Self.DogSales" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DogSalesDocument" EntityType="Self.DogSalesDocument" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DogWeight" EntityType="Self.DogWeight" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DogWeightDocument" EntityType="Self.DogWeightDocument" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Females_Heat" EntityType="Self.Females_Heat" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Litter" EntityType="Self.Litter" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LitterDocument" EntityType="Self.LitterDocument" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Message" EntityType="Self.Message" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OwnerDocument" EntityType="Self.OwnerDocument" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SettingT" EntityType="Self.SettingT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StatusT" EntityType="Self.StatusT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vw_activeFemales" EntityType="Self.vw_activeFemales" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_activeFemales].[DogID] AS [DogID], 
+    [vw_activeFemales].[DogName] AS [DogName]
+    FROM [dbo].[vw_activeFemales] AS [vw_activeFemales]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_activeMales" EntityType="Self.vw_activeMales" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_activeMales].[DogID] AS [DogID], 
+    [vw_activeMales].[DogName] AS [DogName]
+    FROM [dbo].[vw_activeMales] AS [vw_activeMales]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_cboSearchLitters" EntityType="Self.vw_cboSearchLitters" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_cboSearchLitters].[LitterID] AS [LitterID], 
+    [vw_cboSearchLitters].[Yr] AS [Yr], 
+    [vw_cboSearchLitters].[WY_sireDam] AS [WY_sireDam]
+    FROM [dbo].[vw_cboSearchLitters] AS [vw_cboSearchLitters]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_DogDocument_Dog" Association="Self.FK_DogDocument_Dog">
+            <End Role="Dog" EntitySet="Dog" />
+            <End Role="DogDocument" EntitySet="DogDocument" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DogPhoto_Dog" Association="Self.FK_DogPhoto_Dog">
+            <End Role="Dog" EntitySet="Dog" />
+            <End Role="DogPhoto" EntitySet="DogPhoto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DogPhotoDocument_DogPhoto" Association="Self.FK_DogPhotoDocument_DogPhoto">
+            <End Role="DogPhoto" EntitySet="DogPhoto" />
+            <End Role="DogPhotoDocument" EntitySet="DogPhotoDocument" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DogSalePayment_DogSalesID" Association="Self.FK_DogSalePayment_DogSalesID">
+            <End Role="DogSales" EntitySet="DogSales" />
+            <End Role="DogSalePayment" EntitySet="DogSalePayment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DogSalePaymentDocument_DogSalePayment" Association="Self.FK_DogSalePaymentDocument_DogSalePayment">
+            <End Role="DogSalePayment" EntitySet="DogSalePayment" />
+            <End Role="DogSalePaymentDocument" EntitySet="DogSalePaymentDocument" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DogSales_Dog" Association="Self.FK_DogSales_Dog">
+            <End Role="Dog" EntitySet="Dog" />
+            <End Role="DogSales" EntitySet="DogSales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DogSalesDocument_DogSales" Association="Self.FK_DogSalesDocument_DogSales">
+            <End Role="DogSales" EntitySet="DogSales" />
+            <End Role="DogSalesDocument" EntitySet="DogSalesDocument" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DogWeight_Dog" Association="Self.FK_DogWeight_Dog">
+            <End Role="Dog" EntitySet="Dog" />
+            <End Role="DogWeight" EntitySet="DogWeight" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DogWeightDocument_DogWeight" Association="Self.FK_DogWeightDocument_DogWeight">
+            <End Role="DogWeight" EntitySet="DogWeight" />
+            <End Role="DogWeightDocument" EntitySet="DogWeightDocument" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Females_Heat" Association="Self.FK_Females_Heat">
+            <End Role="Dog" EntitySet="Dog" />
+            <End Role="Females_Heat" EntitySet="Females_Heat" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HeatID" Association="Self.FK_HeatID">
+            <End Role="Females_Heat" EntitySet="Females_Heat" />
+            <End Role="Breeding" EntitySet="Breeding" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LitterDocument_Litter" Association="Self.FK_LitterDocument_Litter">
+            <End Role="Litter" EntitySet="Litter" />
+            <End Role="LitterDocument" EntitySet="LitterDocument" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OwnerDocument_DogOwner" Association="Self.FK_OwnerDocument_DogOwner">
+            <End Role="DogOwner" EntitySet="DogOwner" />
+            <End Role="OwnerDocument" EntitySet="OwnerDocument" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dbFFBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Breeder">
+          <Key>
+            <PropertyRef Name="BreederID" />
+          </Key>
+          <Property Name="BreederID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BreederName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BreederAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="BreederCity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BreederState" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="BreederZip" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="BreederEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BreederKennel" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="BreederWebSite" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="BreederPhone" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="LastUpdateID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastUpdateTimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Breeding">
+          <Key>
+            <PropertyRef Name="BreedingID" />
+          </Key>
+          <Property Name="BreedingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BreedingSire_dogID" Type="Int32" Nullable="false" />
+          <Property Name="BreedingDam_dogID" Type="Int32" Nullable="false" />
+          <Property Name="BreedingVet" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="HeatID" Type="Int32" />
+          <Property Name="InseminationDate" Type="DateTime" Precision="3" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="LastUpdateID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastUpdateTimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Females_Heat" Relationship="Self.FK_HeatID" FromRole="Breeding" ToRole="Females_Heat" />
+        </EntityType>
+        <EntityType Name="Dog">
+          <Key>
+            <PropertyRef Name="DogID" />
+          </Key>
+          <Property Name="DogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AKCDogId" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="AKCDogName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AKCRegCertficateDate" Type="DateTime" Precision="3" />
+          <Property Name="Microchip_Num" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CoatColor" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Markings" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DogName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LitterId" Type="Int32" />
+          <Property Name="DogOwnerID" Type="Int32" />
+          <Property Name="BreederID" Type="Int32" />
+          <Property Name="BirthDate" Type="DateTime" Precision="0" />
+          <Property Name="EarsUpStayUpDate" Type="DateTime" Precision="3" />
+          <Property Name="DeceasedDate" Type="DateTime" Precision="3" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="LastUpdateID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastUpdateTimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="DogDocuments" Relationship="Self.FK_DogDocument_Dog" FromRole="Dog" ToRole="DogDocument" />
+          <NavigationProperty Name="DogPhotoes" Relationship="Self.FK_DogPhoto_Dog" FromRole="Dog" ToRole="DogPhoto" />
+          <NavigationProperty Name="DogSales" Relationship="Self.FK_DogSales_Dog" FromRole="Dog" ToRole="DogSales" />
+          <NavigationProperty Name="DogWeights" Relationship="Self.FK_DogWeight_Dog" FromRole="Dog" ToRole="DogWeight" />
+          <NavigationProperty Name="Females_Heat" Relationship="Self.FK_Females_Heat" FromRole="Dog" ToRole="Females_Heat" />
+        </EntityType>
+        <EntityType Name="DogDocument">
+          <Key>
+            <PropertyRef Name="DogDocumentID" />
+          </Key>
+          <Property Name="DogDocumentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DogID" Type="Int32" Nullable="false" />
+          <Property Name="FileName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FileNameDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="LastUpdateID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastUpdateTimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Dog" Relationship="Self.FK_DogDocument_Dog" FromRole="DogDocument" ToRole="Dog" />
+        </EntityType>
+        <EntityType Name="DogOwner">
+          <Key>
+            <PropertyRef Name="DogOwnerID" />
+          </Key>
+          <Property Name="DogOwnerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OwnerName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OwnerAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="OwnerCity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OwnerState" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="OwnerZip" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="OwnerEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OwnerPhone" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="LastUpdateID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastUpdateTimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="OwnerDocuments" Relationship="Self.FK_OwnerDocument_DogOwner" FromRole="DogOwner" ToRole="OwnerDocument" />
+        </EntityType>
+        <EntityType Name="DogPhoto">
+          <Key>
+            <PropertyRef Name="DogPhotoID" />
+          </Key>
+          <Property Name="DogPhotoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DogID" Type="Int32" Nullable="false" />
+          <Property Name="Photo" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Notes" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="LastUpdateID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastUpdateTimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Dog" Relationship="Self.FK_DogPhoto_Dog" FromRole="DogPhoto" ToRole="Dog" />
+          <NavigationProperty Name="DogPhotoDocuments" Relationship="Self.FK_DogPhotoDocument_DogPhoto" FromRole="DogPhoto" ToRole="DogPhotoDocument" />
+        </EntityType>
+        <EntityType Name="DogPhotoDocument">
+          <Key>
+            <PropertyRef Name="DogPhotoDocumentID" />
+          </Key>
+          <Property Name="DogPhotoDocumentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DogPhotoID" Type="Int32" Nullable="false" />
+          <Property Name="FileName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FileNameDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="LastUpdateID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastUpdateTimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="DogPhoto" Relationship="Self.FK_DogPhotoDocument_DogPhoto" FromRole="DogPhotoDocument" ToRole="DogPhoto" />
+        </EntityType>
+        <EntityType Name="DogSalePayment">
+          <Key>
+            <PropertyRef Name="DogSalePayID" />
+          </Key>
+          <Property Name="DogSalePayID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DogSalesID" Type="Int32" Nullable="false" />
+          <Property Name="Amount" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="DateReceived" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="LastUpdateID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastUpdateTimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="DogSale" Relationship="Self.FK_DogSalePayment_DogSalesID" FromRole="DogSalePayment" ToRole="DogSales" />
+          <NavigationProperty Name="DogSalePaymentDocuments" Relationship="Self.FK_DogSalePaymentDocument_DogSalePayment" FromRole="DogSalePayment" ToRole="DogSalePaymentDocument" />
+        </EntityType>
+        <EntityType Name="DogSalePaymentDocument">
+          <Key>
+            <PropertyRef Name="DogSalePaymentDocumentID" />
+          </Key>
+          <Property Name="DogSalePaymentDocumentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DogSalePayID" Type="Int32" Nullable="false" />
+          <Property Name="FileName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FileNameDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="LastUpdateID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastUpdateTimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="DogSalePayment" Relationship="Self.FK_DogSalePaymentDocument_DogSalePayment" FromRole="DogSalePaymentDocument" ToRole="DogSalePayment" />
+        </EntityType>
+        <EntityType Name="DogSale">
+          <Key>
+            <PropertyRef Name="DogSalesID" />
+          </Key>
+          <Property Name="DogSalesID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DogID" Type="Int32" Nullable="false" />
+          <Property Name="SalesPrice" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="DateContractMailed" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DogSaleDate" Type="DateTime" Precision="3" />
+          <Property Name="DogSaleNotes" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="LastUpdateID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastUpdateTimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Dog" Relationship="Self.FK_DogSales_Dog" FromRole="DogSales" ToRole="Dog" />
+          <NavigationProperty Name="DogSalePayments" Relationship="Self.FK_DogSalePayment_DogSalesID" FromRole="DogSales" ToRole="DogSalePayment" />
+          <NavigationProperty Name="DogSalesDocuments" Relationship="Self.FK_DogSalesDocument_DogSales" FromRole="DogSales" ToRole="DogSalesDocument" />
+        </EntityType>
+        <EntityType Name="DogSalesDocument">
+          <Key>
+            <PropertyRef Name="DogSalesDocumentID" />
+          </Key>
+          <Property Name="DogSalesDocumentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DogSalesID" Type="Int32" Nullable="false" />
+          <Property Name="FileName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FileNameDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="LastUpdateID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastUpdateTimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="DogSale" Relationship="Self.FK_DogSalesDocument_DogSales" FromRole="DogSalesDocument" ToRole="DogSales" />
+        </EntityType>
+        <EntityType Name="DogWeight">
+          <Key>
+            <PropertyRef Name="DogWeightID" />
+          </Key>
+          <Property Name="DogWeightID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DogID" Type="Int32" Nullable="false" />
+          <Property Name="Weight_lbs" Type="Int32" Nullable="false" />
+          <Property Name="Weitht_oz" Type="Int32" Nullable="false" />
+          <Property Name="WeightDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="LastUpdateID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastUpdateTimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Dog" Relationship="Self.FK_DogWeight_Dog" FromRole="DogWeight" ToRole="Dog" />
+          <NavigationProperty Name="DogWeightDocuments" Relationship="Self.FK_DogWeightDocument_DogWeight" FromRole="DogWeight" ToRole="DogWeightDocument" />
+        </EntityType>
+        <EntityType Name="DogWeightDocument">
+          <Key>
+            <PropertyRef Name="DogWeightDocumentID" />
+          </Key>
+          <Property Name="DogWeightDocumentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DogWeightID" Type="Int32" Nullable="false" />
+          <Property Name="FileName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FileNameDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="LastUpdateID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastUpdateTimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="DogWeight" Relationship="Self.FK_DogWeightDocument_DogWeight" FromRole="DogWeightDocument" ToRole="DogWeight" />
+        </EntityType>
+        <EntityType Name="Females_Heat">
+          <Key>
+            <PropertyRef Name="HeatID" />
+          </Key>
+          <Property Name="HeatID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FemaleDogID" Type="Int32" Nullable="false" />
+          <Property Name="HeatDateStart" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="LastUpdateID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastUpdateTimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Breedings" Relationship="Self.FK_HeatID" FromRole="Females_Heat" ToRole="Breeding" />
+          <NavigationProperty Name="Dog" Relationship="Self.FK_Females_Heat" FromRole="Females_Heat" ToRole="Dog" />
+        </EntityType>
+        <EntityType Name="Litter">
+          <Key>
+            <PropertyRef Name="LitterID" />
+          </Key>
+          <Property Name="LitterID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AKCLitter" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Sire_dogID" Type="Int32" Nullable="false" />
+          <Property Name="Dam_dogID" Type="Int32" Nullable="false" />
+          <Property Name="LitterFemales" Type="Int32" Nullable="false" />
+          <Property Name="LitterMales" Type="Int32" Nullable="false" />
+          <Property Name="DeliverVet" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="WhelpDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="LastUpdateID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastUpdateTimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="LitterDocuments" Relationship="Self.FK_LitterDocument_Litter" FromRole="Litter" ToRole="LitterDocument" />
+        </EntityType>
+        <EntityType Name="LitterDocument">
+          <Key>
+            <PropertyRef Name="LitterDocumentID" />
+          </Key>
+          <Property Name="LitterDocumentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LitterID" Type="Int32" Nullable="false" />
+          <Property Name="FileName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FileNameDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="LastUpdateID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastUpdateTimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Litter" Relationship="Self.FK_LitterDocument_Litter" FromRole="LitterDocument" ToRole="Litter" />
+        </EntityType>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="MessageID" />
+          </Key>
+          <Property Name="MessageID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="MessageDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="From" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Subject" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Message1" Type="String" MaxLength="1500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="LastUpdateID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastUpdateTimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="OwnerDocument">
+          <Key>
+            <PropertyRef Name="OwnerDocumentID" />
+          </Key>
+          <Property Name="OwnerDocumentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DogOwnerID" Type="Int32" Nullable="false" />
+          <Property Name="FileName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FileNameDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="LastUpdateID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastUpdateTimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="DogOwner" Relationship="Self.FK_OwnerDocument_DogOwner" FromRole="OwnerDocument" ToRole="DogOwner" />
+        </EntityType>
+        <EntityType Name="SettingT">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Key" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Value" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="StatusT">
+          <Key>
+            <PropertyRef Name="StatusID" />
+          </Key>
+          <Property Name="StatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_HeatID">
+          <End Role="Females_Heat" Type="Self.Females_Heat" Multiplicity="0..1" />
+          <End Role="Breeding" Type="Self.Breeding" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Females_Heat">
+              <PropertyRef Name="HeatID" />
+            </Principal>
+            <Dependent Role="Breeding">
+              <PropertyRef Name="HeatID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DogDocument_Dog">
+          <End Role="Dog" Type="Self.Dog" Multiplicity="1" />
+          <End Role="DogDocument" Type="Self.DogDocument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dog">
+              <PropertyRef Name="DogID" />
+            </Principal>
+            <Dependent Role="DogDocument">
+              <PropertyRef Name="DogID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DogPhoto_Dog">
+          <End Role="Dog" Type="Self.Dog" Multiplicity="1" />
+          <End Role="DogPhoto" Type="Self.DogPhoto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dog">
+              <PropertyRef Name="DogID" />
+            </Principal>
+            <Dependent Role="DogPhoto">
+              <PropertyRef Name="DogID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DogSales_Dog">
+          <End Role="Dog" Type="Self.Dog" Multiplicity="1" />
+          <End Role="DogSales" Type="Self.DogSale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dog">
+              <PropertyRef Name="DogID" />
+            </Principal>
+            <Dependent Role="DogSales">
+              <PropertyRef Name="DogID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DogWeight_Dog">
+          <End Role="Dog" Type="Self.Dog" Multiplicity="1" />
+          <End Role="DogWeight" Type="Self.DogWeight" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dog">
+              <PropertyRef Name="DogID" />
+            </Principal>
+            <Dependent Role="DogWeight">
+              <PropertyRef Name="DogID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Females_Heat">
+          <End Role="Dog" Type="Self.Dog" Multiplicity="1" />
+          <End Role="Females_Heat" Type="Self.Females_Heat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dog">
+              <PropertyRef Name="DogID" />
+            </Principal>
+            <Dependent Role="Females_Heat">
+              <PropertyRef Name="FemaleDogID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OwnerDocument_DogOwner">
+          <End Role="DogOwner" Type="Self.DogOwner" Multiplicity="1" />
+          <End Role="OwnerDocument" Type="Self.OwnerDocument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DogOwner">
+              <PropertyRef Name="DogOwnerID" />
+            </Principal>
+            <Dependent Role="OwnerDocument">
+              <PropertyRef Name="DogOwnerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DogPhotoDocument_DogPhoto">
+          <End Role="DogPhoto" Type="Self.DogPhoto" Multiplicity="1" />
+          <End Role="DogPhotoDocument" Type="Self.DogPhotoDocument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DogPhoto">
+              <PropertyRef Name="DogPhotoID" />
+            </Principal>
+            <Dependent Role="DogPhotoDocument">
+              <PropertyRef Name="DogPhotoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DogSalePayment_DogSalesID">
+          <End Role="DogSales" Type="Self.DogSale" Multiplicity="1" />
+          <End Role="DogSalePayment" Type="Self.DogSalePayment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DogSales">
+              <PropertyRef Name="DogSalesID" />
+            </Principal>
+            <Dependent Role="DogSalePayment">
+              <PropertyRef Name="DogSalesID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DogSalePaymentDocument_DogSalePayment">
+          <End Role="DogSalePayment" Type="Self.DogSalePayment" Multiplicity="1" />
+          <End Role="DogSalePaymentDocument" Type="Self.DogSalePaymentDocument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DogSalePayment">
+              <PropertyRef Name="DogSalePayID" />
+            </Principal>
+            <Dependent Role="DogSalePaymentDocument">
+              <PropertyRef Name="DogSalePayID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DogSalesDocument_DogSales">
+          <End Role="DogSales" Type="Self.DogSale" Multiplicity="1" />
+          <End Role="DogSalesDocument" Type="Self.DogSalesDocument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DogSales">
+              <PropertyRef Name="DogSalesID" />
+            </Principal>
+            <Dependent Role="DogSalesDocument">
+              <PropertyRef Name="DogSalesID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DogWeightDocument_DogWeight">
+          <End Role="DogWeight" Type="Self.DogWeight" Multiplicity="1" />
+          <End Role="DogWeightDocument" Type="Self.DogWeightDocument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DogWeight">
+              <PropertyRef Name="DogWeightID" />
+            </Principal>
+            <Dependent Role="DogWeightDocument">
+              <PropertyRef Name="DogWeightID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LitterDocument_Litter">
+          <End Role="Litter" Type="Self.Litter" Multiplicity="1" />
+          <End Role="LitterDocument" Type="Self.LitterDocument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Litter">
+              <PropertyRef Name="LitterID" />
+            </Principal>
+            <Dependent Role="LitterDocument">
+              <PropertyRef Name="LitterID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="dbFFBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Breeders" EntityType="Self.Breeder" />
+          <EntitySet Name="Breedings" EntityType="Self.Breeding" />
+          <EntitySet Name="Dogs" EntityType="Self.Dog" />
+          <EntitySet Name="DogDocuments" EntityType="Self.DogDocument" />
+          <EntitySet Name="DogOwners" EntityType="Self.DogOwner" />
+          <EntitySet Name="DogPhotoes" EntityType="Self.DogPhoto" />
+          <EntitySet Name="DogPhotoDocuments" EntityType="Self.DogPhotoDocument" />
+          <EntitySet Name="DogSalePayments" EntityType="Self.DogSalePayment" />
+          <EntitySet Name="DogSalePaymentDocuments" EntityType="Self.DogSalePaymentDocument" />
+          <EntitySet Name="DogSales" EntityType="Self.DogSale" />
+          <EntitySet Name="DogSalesDocuments" EntityType="Self.DogSalesDocument" />
+          <EntitySet Name="DogWeights" EntityType="Self.DogWeight" />
+          <EntitySet Name="DogWeightDocuments" EntityType="Self.DogWeightDocument" />
+          <EntitySet Name="Females_Heat" EntityType="Self.Females_Heat" />
+          <EntitySet Name="Litters" EntityType="Self.Litter" />
+          <EntitySet Name="LitterDocuments" EntityType="Self.LitterDocument" />
+          <EntitySet Name="Messages" EntityType="Self.Message" />
+          <EntitySet Name="OwnerDocuments" EntityType="Self.OwnerDocument" />
+          <EntitySet Name="SettingTs" EntityType="Self.SettingT" />
+          <EntitySet Name="StatusTs" EntityType="Self.StatusT" />
+          <AssociationSet Name="FK_HeatID" Association="Self.FK_HeatID">
+            <End Role="Females_Heat" EntitySet="Females_Heat" />
+            <End Role="Breeding" EntitySet="Breedings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DogDocument_Dog" Association="Self.FK_DogDocument_Dog">
+            <End Role="Dog" EntitySet="Dogs" />
+            <End Role="DogDocument" EntitySet="DogDocuments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DogPhoto_Dog" Association="Self.FK_DogPhoto_Dog">
+            <End Role="Dog" EntitySet="Dogs" />
+            <End Role="DogPhoto" EntitySet="DogPhotoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DogSales_Dog" Association="Self.FK_DogSales_Dog">
+            <End Role="Dog" EntitySet="Dogs" />
+            <End Role="DogSales" EntitySet="DogSales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DogWeight_Dog" Association="Self.FK_DogWeight_Dog">
+            <End Role="Dog" EntitySet="Dogs" />
+            <End Role="DogWeight" EntitySet="DogWeights" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Females_Heat" Association="Self.FK_Females_Heat">
+            <End Role="Dog" EntitySet="Dogs" />
+            <End Role="Females_Heat" EntitySet="Females_Heat" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OwnerDocument_DogOwner" Association="Self.FK_OwnerDocument_DogOwner">
+            <End Role="DogOwner" EntitySet="DogOwners" />
+            <End Role="OwnerDocument" EntitySet="OwnerDocuments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DogPhotoDocument_DogPhoto" Association="Self.FK_DogPhotoDocument_DogPhoto">
+            <End Role="DogPhoto" EntitySet="DogPhotoes" />
+            <End Role="DogPhotoDocument" EntitySet="DogPhotoDocuments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DogSalePayment_DogSalesID" Association="Self.FK_DogSalePayment_DogSalesID">
+            <End Role="DogSales" EntitySet="DogSales" />
+            <End Role="DogSalePayment" EntitySet="DogSalePayments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DogSalePaymentDocument_DogSalePayment" Association="Self.FK_DogSalePaymentDocument_DogSalePayment">
+            <End Role="DogSalePayment" EntitySet="DogSalePayments" />
+            <End Role="DogSalePaymentDocument" EntitySet="DogSalePaymentDocuments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DogSalesDocument_DogSales" Association="Self.FK_DogSalesDocument_DogSales">
+            <End Role="DogSales" EntitySet="DogSales" />
+            <End Role="DogSalesDocument" EntitySet="DogSalesDocuments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DogWeightDocument_DogWeight" Association="Self.FK_DogWeightDocument_DogWeight">
+            <End Role="DogWeight" EntitySet="DogWeights" />
+            <End Role="DogWeightDocument" EntitySet="DogWeightDocuments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LitterDocument_Litter" Association="Self.FK_LitterDocument_Litter">
+            <End Role="Litter" EntitySet="Litters" />
+            <End Role="LitterDocument" EntitySet="LitterDocuments" />
+          </AssociationSet>
+          <EntitySet Name="vw_activeFemales" EntityType="dbFFBModel.vw_activeFemales" />
+          <EntitySet Name="vw_activeMales" EntityType="dbFFBModel.vw_activeMales" />
+          <EntitySet Name="vw_cboSearchLitters" EntityType="dbFFBModel.vw_cboSearchLitters" />
+        </EntityContainer>
+        <EntityType Name="vw_activeFemales">
+          <Key>
+            <PropertyRef Name="DogID" />
+          </Key>
+          <Property Name="DogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DogName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vw_activeMales">
+          <Key>
+            <PropertyRef Name="DogID" />
+          </Key>
+          <Property Name="DogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DogName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vw_cboSearchLitters">
+          <Key>
+            <PropertyRef Name="LitterID" />
+          </Key>
+          <Property Name="LitterID" Type="Int32" Nullable="false" />
+          <Property Name="Yr" Type="Int32" />
+          <Property Name="WY_sireDam" Type="String" MaxLength="103" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dbFFBModelStoreContainer" CdmEntityContainer="dbFFBEntities">
+          <EntitySetMapping Name="Breeders">
+            <EntityTypeMapping TypeName="dbFFBModel.Breeder">
+              <MappingFragment StoreEntitySet="Breeder">
+                <ScalarProperty Name="BreederID" ColumnName="BreederID" />
+                <ScalarProperty Name="BreederName" ColumnName="BreederName" />
+                <ScalarProperty Name="BreederAddress" ColumnName="BreederAddress" />
+                <ScalarProperty Name="BreederCity" ColumnName="BreederCity" />
+                <ScalarProperty Name="BreederState" ColumnName="BreederState" />
+                <ScalarProperty Name="BreederZip" ColumnName="BreederZip" />
+                <ScalarProperty Name="BreederEmail" ColumnName="BreederEmail" />
+                <ScalarProperty Name="BreederKennel" ColumnName="BreederKennel" />
+                <ScalarProperty Name="BreederWebSite" ColumnName="BreederWebSite" />
+                <ScalarProperty Name="BreederPhone" ColumnName="BreederPhone" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="LastUpdateID" ColumnName="LastUpdateID" />
+                <ScalarProperty Name="LastUpdateTimeStamp" ColumnName="LastUpdateTimeStamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Breedings">
+            <EntityTypeMapping TypeName="dbFFBModel.Breeding">
+              <MappingFragment StoreEntitySet="Breeding">
+                <ScalarProperty Name="BreedingID" ColumnName="BreedingID" />
+                <ScalarProperty Name="BreedingSire_dogID" ColumnName="BreedingSire_dogID" />
+                <ScalarProperty Name="BreedingDam_dogID" ColumnName="BreedingDam_dogID" />
+                <ScalarProperty Name="BreedingVet" ColumnName="BreedingVet" />
+                <ScalarProperty Name="HeatID" ColumnName="HeatID" />
+                <ScalarProperty Name="InseminationDate" ColumnName="InseminationDate" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="LastUpdateID" ColumnName="LastUpdateID" />
+                <ScalarProperty Name="LastUpdateTimeStamp" ColumnName="LastUpdateTimeStamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dogs">
+            <EntityTypeMapping TypeName="dbFFBModel.Dog">
+              <MappingFragment StoreEntitySet="Dog">
+                <ScalarProperty Name="DogID" ColumnName="DogID" />
+                <ScalarProperty Name="AKCDogId" ColumnName="AKCDogId" />
+                <ScalarProperty Name="AKCDogName" ColumnName="AKCDogName" />
+                <ScalarProperty Name="AKCRegCertficateDate" ColumnName="AKCRegCertficateDate" />
+                <ScalarProperty Name="Microchip_Num" ColumnName="Microchip_Num" />
+                <ScalarProperty Name="CoatColor" ColumnName="CoatColor" />
+                <ScalarProperty Name="Markings" ColumnName="Markings" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="DogName" ColumnName="DogName" />
+                <ScalarProperty Name="LitterId" ColumnName="LitterId" />
+                <ScalarProperty Name="DogOwnerID" ColumnName="DogOwnerID" />
+                <ScalarProperty Name="BreederID" ColumnName="BreederID" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="EarsUpStayUpDate" ColumnName="EarsUpStayUpDate" />
+                <ScalarProperty Name="DeceasedDate" ColumnName="DeceasedDate" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="LastUpdateID" ColumnName="LastUpdateID" />
+                <ScalarProperty Name="LastUpdateTimeStamp" ColumnName="LastUpdateTimeStamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DogDocuments">
+            <EntityTypeMapping TypeName="dbFFBModel.DogDocument">
+              <MappingFragment StoreEntitySet="DogDocument">
+                <ScalarProperty Name="DogDocumentID" ColumnName="DogDocumentID" />
+                <ScalarProperty Name="DogID" ColumnName="DogID" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="FileNameDescription" ColumnName="FileNameDescription" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="LastUpdateID" ColumnName="LastUpdateID" />
+                <ScalarProperty Name="LastUpdateTimeStamp" ColumnName="LastUpdateTimeStamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DogOwners">
+            <EntityTypeMapping TypeName="dbFFBModel.DogOwner">
+              <MappingFragment StoreEntitySet="DogOwner">
+                <ScalarProperty Name="DogOwnerID" ColumnName="DogOwnerID" />
+                <ScalarProperty Name="OwnerName" ColumnName="OwnerName" />
+                <ScalarProperty Name="OwnerAddress" ColumnName="OwnerAddress" />
+                <ScalarProperty Name="OwnerCity" ColumnName="OwnerCity" />
+                <ScalarProperty Name="OwnerState" ColumnName="OwnerState" />
+                <ScalarProperty Name="OwnerZip" ColumnName="OwnerZip" />
+                <ScalarProperty Name="OwnerEmail" ColumnName="OwnerEmail" />
+                <ScalarProperty Name="OwnerPhone" ColumnName="OwnerPhone" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="LastUpdateID" ColumnName="LastUpdateID" />
+                <ScalarProperty Name="LastUpdateTimeStamp" ColumnName="LastUpdateTimeStamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DogPhotoes">
+            <EntityTypeMapping TypeName="dbFFBModel.DogPhoto">
+              <MappingFragment StoreEntitySet="DogPhoto">
+                <ScalarProperty Name="DogPhotoID" ColumnName="DogPhotoID" />
+                <ScalarProperty Name="DogID" ColumnName="DogID" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="LastUpdateID" ColumnName="LastUpdateID" />
+                <ScalarProperty Name="LastUpdateTimeStamp" ColumnName="LastUpdateTimeStamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DogPhotoDocuments">
+            <EntityTypeMapping TypeName="dbFFBModel.DogPhotoDocument">
+              <MappingFragment StoreEntitySet="DogPhotoDocument">
+                <ScalarProperty Name="DogPhotoDocumentID" ColumnName="DogPhotoDocumentID" />
+                <ScalarProperty Name="DogPhotoID" ColumnName="DogPhotoID" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="FileNameDescription" ColumnName="FileNameDescription" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="LastUpdateID" ColumnName="LastUpdateID" />
+                <ScalarProperty Name="LastUpdateTimeStamp" ColumnName="LastUpdateTimeStamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DogSalePayments">
+            <EntityTypeMapping TypeName="dbFFBModel.DogSalePayment">
+              <MappingFragment StoreEntitySet="DogSalePayment">
+                <ScalarProperty Name="DogSalePayID" ColumnName="DogSalePayID" />
+                <ScalarProperty Name="DogSalesID" ColumnName="DogSalesID" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="DateReceived" ColumnName="DateReceived" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="LastUpdateID" ColumnName="LastUpdateID" />
+                <ScalarProperty Name="LastUpdateTimeStamp" ColumnName="LastUpdateTimeStamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DogSalePaymentDocuments">
+            <EntityTypeMapping TypeName="dbFFBModel.DogSalePaymentDocument">
+              <MappingFragment StoreEntitySet="DogSalePaymentDocument">
+                <ScalarProperty Name="DogSalePaymentDocumentID" ColumnName="DogSalePaymentDocumentID" />
+                <ScalarProperty Name="DogSalePayID" ColumnName="DogSalePayID" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="FileNameDescription" ColumnName="FileNameDescription" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="LastUpdateID" ColumnName="LastUpdateID" />
+                <ScalarProperty Name="LastUpdateTimeStamp" ColumnName="LastUpdateTimeStamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DogSales">
+            <EntityTypeMapping TypeName="dbFFBModel.DogSale">
+              <MappingFragment StoreEntitySet="DogSales">
+                <ScalarProperty Name="DogSalesID" ColumnName="DogSalesID" />
+                <ScalarProperty Name="DogID" ColumnName="DogID" />
+                <ScalarProperty Name="SalesPrice" ColumnName="SalesPrice" />
+                <ScalarProperty Name="DateContractMailed" ColumnName="DateContractMailed" />
+                <ScalarProperty Name="DogSaleDate" ColumnName="DogSaleDate" />
+                <ScalarProperty Name="DogSaleNotes" ColumnName="DogSaleNotes" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="LastUpdateID" ColumnName="LastUpdateID" />
+                <ScalarProperty Name="LastUpdateTimeStamp" ColumnName="LastUpdateTimeStamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DogSalesDocuments">
+            <EntityTypeMapping TypeName="dbFFBModel.DogSalesDocument">
+              <MappingFragment StoreEntitySet="DogSalesDocument">
+                <ScalarProperty Name="DogSalesDocumentID" ColumnName="DogSalesDocumentID" />
+                <ScalarProperty Name="DogSalesID" ColumnName="DogSalesID" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="FileNameDescription" ColumnName="FileNameDescription" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="LastUpdateID" ColumnName="LastUpdateID" />
+                <ScalarProperty Name="LastUpdateTimeStamp" ColumnName="LastUpdateTimeStamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DogWeights">
+            <EntityTypeMapping TypeName="dbFFBModel.DogWeight">
+              <MappingFragment StoreEntitySet="DogWeight">
+                <ScalarProperty Name="DogWeightID" ColumnName="DogWeightID" />
+                <ScalarProperty Name="DogID" ColumnName="DogID" />
+                <ScalarProperty Name="Weight_lbs" ColumnName="Weight_lbs" />
+                <ScalarProperty Name="Weitht_oz" ColumnName="Weitht_oz" />
+                <ScalarProperty Name="WeightDate" ColumnName="WeightDate" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="LastUpdateID" ColumnName="LastUpdateID" />
+                <ScalarProperty Name="LastUpdateTimeStamp" ColumnName="LastUpdateTimeStamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DogWeightDocuments">
+            <EntityTypeMapping TypeName="dbFFBModel.DogWeightDocument">
+              <MappingFragment StoreEntitySet="DogWeightDocument">
+                <ScalarProperty Name="DogWeightDocumentID" ColumnName="DogWeightDocumentID" />
+                <ScalarProperty Name="DogWeightID" ColumnName="DogWeightID" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="FileNameDescription" ColumnName="FileNameDescription" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="LastUpdateID" ColumnName="LastUpdateID" />
+                <ScalarProperty Name="LastUpdateTimeStamp" ColumnName="LastUpdateTimeStamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Females_Heat">
+            <EntityTypeMapping TypeName="dbFFBModel.Females_Heat">
+              <MappingFragment StoreEntitySet="Females_Heat">
+                <ScalarProperty Name="HeatID" ColumnName="HeatID" />
+                <ScalarProperty Name="FemaleDogID" ColumnName="FemaleDogID" />
+                <ScalarProperty Name="HeatDateStart" ColumnName="HeatDateStart" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="LastUpdateID" ColumnName="LastUpdateID" />
+                <ScalarProperty Name="LastUpdateTimeStamp" ColumnName="LastUpdateTimeStamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Litters">
+            <EntityTypeMapping TypeName="dbFFBModel.Litter">
+              <MappingFragment StoreEntitySet="Litter">
+                <ScalarProperty Name="LitterID" ColumnName="LitterID" />
+                <ScalarProperty Name="AKCLitter" ColumnName="AKCLitter" />
+                <ScalarProperty Name="Sire_dogID" ColumnName="Sire_dogID" />
+                <ScalarProperty Name="Dam_dogID" ColumnName="Dam_dogID" />
+                <ScalarProperty Name="LitterFemales" ColumnName="LitterFemales" />
+                <ScalarProperty Name="LitterMales" ColumnName="LitterMales" />
+                <ScalarProperty Name="DeliverVet" ColumnName="DeliverVet" />
+                <ScalarProperty Name="WhelpDate" ColumnName="WhelpDate" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="LastUpdateID" ColumnName="LastUpdateID" />
+                <ScalarProperty Name="LastUpdateTimeStamp" ColumnName="LastUpdateTimeStamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LitterDocuments">
+            <EntityTypeMapping TypeName="dbFFBModel.LitterDocument">
+              <MappingFragment StoreEntitySet="LitterDocument">
+                <ScalarProperty Name="LitterDocumentID" ColumnName="LitterDocumentID" />
+                <ScalarProperty Name="LitterID" ColumnName="LitterID" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="FileNameDescription" ColumnName="FileNameDescription" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="LastUpdateID" ColumnName="LastUpdateID" />
+                <ScalarProperty Name="LastUpdateTimeStamp" ColumnName="LastUpdateTimeStamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Messages">
+            <EntityTypeMapping TypeName="dbFFBModel.Message">
+              <MappingFragment StoreEntitySet="Message">
+                <ScalarProperty Name="MessageID" ColumnName="MessageID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="MessageDate" ColumnName="MessageDate" />
+                <ScalarProperty Name="From" ColumnName="From" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Message1" ColumnName="Message" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="LastUpdateID" ColumnName="LastUpdateID" />
+                <ScalarProperty Name="LastUpdateTimeStamp" ColumnName="LastUpdateTimeStamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OwnerDocuments">
+            <EntityTypeMapping TypeName="dbFFBModel.OwnerDocument">
+              <MappingFragment StoreEntitySet="OwnerDocument">
+                <ScalarProperty Name="OwnerDocumentID" ColumnName="OwnerDocumentID" />
+                <ScalarProperty Name="DogOwnerID" ColumnName="DogOwnerID" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="FileNameDescription" ColumnName="FileNameDescription" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="LastUpdateID" ColumnName="LastUpdateID" />
+                <ScalarProperty Name="LastUpdateTimeStamp" ColumnName="LastUpdateTimeStamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SettingTs">
+            <EntityTypeMapping TypeName="dbFFBModel.SettingT">
+              <MappingFragment StoreEntitySet="SettingT">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Key" ColumnName="Key" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StatusTs">
+            <EntityTypeMapping TypeName="dbFFBModel.StatusT">
+              <MappingFragment StoreEntitySet="StatusT">
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_activeFemales">
+            <EntityTypeMapping TypeName="dbFFBModel.vw_activeFemales">
+              <MappingFragment StoreEntitySet="vw_activeFemales">
+                <ScalarProperty Name="DogName" ColumnName="DogName" />
+                <ScalarProperty Name="DogID" ColumnName="DogID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_activeMales">
+            <EntityTypeMapping TypeName="dbFFBModel.vw_activeMales">
+              <MappingFragment StoreEntitySet="vw_activeMales">
+                <ScalarProperty Name="DogName" ColumnName="DogName" />
+                <ScalarProperty Name="DogID" ColumnName="DogID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_cboSearchLitters">
+            <EntityTypeMapping TypeName="dbFFBModel.vw_cboSearchLitters">
+              <MappingFragment StoreEntitySet="vw_cboSearchLitters">
+                <ScalarProperty Name="WY_sireDam" ColumnName="WY_sireDam" />
+                <ScalarProperty Name="Yr" ColumnName="Yr" />
+                <ScalarProperty Name="LitterID" ColumnName="LitterID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

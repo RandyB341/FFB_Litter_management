@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="cf1cc1450c074cd68b0114e1821d47ce" Name="Diagram1">
+        <EntityTypeShape EntityType="dbFFBModel.Breeder" Width="1.5" PointX="9.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbFFBModel.Breeding" Width="1.5" PointX="5.25" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbFFBModel.Dog" Width="1.5" PointX="0.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbFFBModel.DogDocument" Width="1.5" PointX="3" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbFFBModel.DogOwner" Width="1.5" PointX="7.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbFFBModel.DogPhoto" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbFFBModel.DogPhotoDocument" Width="1.5" PointX="5.25" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbFFBModel.DogSalePayment" Width="1.5" PointX="5.25" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbFFBModel.DogSalePaymentDocument" Width="1.5" PointX="7.5" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbFFBModel.DogSale" Width="1.5" PointX="3" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbFFBModel.DogSalesDocument" Width="1.5" PointX="5.25" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbFFBModel.DogWeight" Width="1.5" PointX="3" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbFFBModel.DogWeightDocument" Width="1.5" PointX="5.25" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbFFBModel.Females_Heat" Width="1.5" PointX="3" PointY="19.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbFFBModel.Litter" Width="1.5" PointX="9.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbFFBModel.LitterDocument" Width="1.5" PointX="12" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbFFBModel.Message" Width="1.5" PointX="11.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbFFBModel.OwnerDocument" Width="1.5" PointX="10" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbFFBModel.SettingT" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbFFBModel.StatusT" Width="1.5" PointX="11.75" PointY="12.75" IsExpanded="true" />
+        <AssociationConnector Association="dbFFBModel.FK_HeatID" ManuallyRouted="false" />
+        <AssociationConnector Association="dbFFBModel.FK_DogDocument_Dog" ManuallyRouted="false" />
+        <AssociationConnector Association="dbFFBModel.FK_DogPhoto_Dog" ManuallyRouted="false" />
+        <AssociationConnector Association="dbFFBModel.FK_DogSales_Dog" ManuallyRouted="false" />
+        <AssociationConnector Association="dbFFBModel.FK_DogWeight_Dog" ManuallyRouted="false" />
+        <AssociationConnector Association="dbFFBModel.FK_Females_Heat" ManuallyRouted="false" />
+        <AssociationConnector Association="dbFFBModel.FK_OwnerDocument_DogOwner" ManuallyRouted="false" />
+        <AssociationConnector Association="dbFFBModel.FK_DogPhotoDocument_DogPhoto" ManuallyRouted="false" />
+        <AssociationConnector Association="dbFFBModel.FK_DogSalePayment_DogSalesID" ManuallyRouted="false" />
+        <AssociationConnector Association="dbFFBModel.FK_DogSalePaymentDocument_DogSalePayment" ManuallyRouted="false" />
+        <AssociationConnector Association="dbFFBModel.FK_DogSalesDocument_DogSales" ManuallyRouted="false" />
+        <AssociationConnector Association="dbFFBModel.FK_DogWeightDocument_DogWeight" ManuallyRouted="false" />
+        <AssociationConnector Association="dbFFBModel.FK_LitterDocument_Litter" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="dbFFBModel.vw_activeFemales" Width="1.5" PointX="14.375" PointY="3.75" />
+        <EntityTypeShape EntityType="dbFFBModel.vw_activeMales" Width="1.5" PointX="14.375" PointY="6.75" />
+        <EntityTypeShape EntityType="dbFFBModel.vw_cboSearchLitters" Width="1.5" PointX="7.375" PointY="14.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,61 @@
+Steps for each table in FFB Application
+1. Review diagram and sql script that created database- start from top of script to create new VS forms
+2. For each form-->Right-click on UI project (wfUI) -->Add-->Windows Form-->prefix form with pre-->then short name referring to the table
+3. Add label1 for Heading at top center of form
+4. Add 2 GroupBoxes, Search (top) and Details (middle), and DataGridView (bottom)
+5. In Search, Add dropdown, label for dropdown, and 3 buttons (btnSearch, btnViewAll, btnAddNew)
+In Details, 3 buttons
+6. Naming:  btnSearch, btnViewAll, btnSave, btnCancel, btnDelete
+dgv[TableName], labels and textboxes prefix = lbl and txt
+7. Set Textbox MaxLength to table length
+8. Details ID label:  Autosize=False, Font=Bold, Border=FixedSingle
+9. Add  using ClassLibrary3; -  and  -  private variables to form before any event code:
+		using ClassLibrary3;
+		
+		private static bool IsUpdateOperation = false;
+		private const string strTableName = "Breeder ";  --> tablename
+
+		FillDropDownList fdl = new FillDropDownList();
+
+9. btnSave code-behind: copy code from frmBreeder.btnSave to Notepad to view in other window
+9a. Add to begin
+	if (IsUpdateOperation == true)
+			{
+				// Update
+
+			}
+			else
+			{
+				// Insert
+			}
+9b. fill in Insert (ex of filled out)
+		// Insert
+				using (var B = new dbFFBEntities())
+				{
+					var i = new SettingT
+					{
+						Key = txtKey.Text.Trim(),
+						Value = txtValue.Text.Trim()
+
+					};
+					B.SettingTs.Add(i);
+					var sa = B.SaveChanges();
+					if (sa ==1)
+					{
+						ClearAllDetailFields();
+						MessageBox.Show(strTableName + i.Key + " Added Successfully");
+					}
+				}
+10.  Search combobox load code to replicate:
+		private void load_cboBreederName()
+		{
+			cboBreederName.DataSource = null;
+			cboBreederName.Items.Clear();
+			using (var B = new dbFFBEntities())
+			{
+				cboBreederName.DataSource = B.Breeders.Select(x => new { x.BreederID, x.BreederName }).OrderBy(x => x.BreederName).ToList();
+				cboBreederName.ValueMember = "BreederID";
+				cboBreederName.DisplayMember = "BreederName";
+				cboBreederName.Invalidate();
+			}
+	}

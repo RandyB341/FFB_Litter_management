@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2037
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary3", "ClassLibrary3\ClassLibrary3.csproj", "{04A39A70-64D3-4B93-9A3E-02EA7FA30627}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wfUI", "wfUI\wfUI.csproj", "{7A8A9B0F-723A-4A7A-89A0-A0C2AA30EFC2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C986389E-F223-4636-ADFE-957EFF853462}"
+	ProjectSection(SolutionItems) = preProject
+		Diagram_0 (1).pdf = Diagram_0 (1).pdf
+		dogAppScript12172015withSPs.sql = dogAppScript12172015withSPs.sql
+		Steps for each table in FFB Application.txt = Steps for each table in FFB Application.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{04A39A70-64D3-4B93-9A3E-02EA7FA30627}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04A39A70-64D3-4B93-9A3E-02EA7FA30627}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04A39A70-64D3-4B93-9A3E-02EA7FA30627}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04A39A70-64D3-4B93-9A3E-02EA7FA30627}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A8A9B0F-723A-4A7A-89A0-A0C2AA30EFC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A8A9B0F-723A-4A7A-89A0-A0C2AA30EFC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A8A9B0F-723A-4A7A-89A0-A0C2AA30EFC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A8A9B0F-723A-4A7A-89A0-A0C2AA30EFC2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C87400E7-4FFB-4585-9C1F-DDE9DE2761D4}
+	EndGlobalSection
+EndGlobal
