@@ -95,6 +95,12 @@
     <Compile Include="frmDogOwner.Designer.cs">
       <DependentUpon>frmDogOwner.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDogWeight.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDogWeight.Designer.cs">
+      <DependentUpon>frmDogWeight.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLitter.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,6 +137,9 @@
     <EmbeddedResource Include="frmDogOwner.resx">
       <DependentUpon>frmDogOwner.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDogWeight.resx">
+      <DependentUpon>frmDogWeight.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLitter.resx">
       <DependentUpon>frmLitter.cs</DependentUpon>
