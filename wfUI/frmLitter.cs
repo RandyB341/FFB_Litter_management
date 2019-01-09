@@ -255,5 +255,24 @@ namespace wfUI
             }
         }
 
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            int myId = Convert.ToInt32(lblLitterID.Text);
+            using (var B = new dbFFBEntities())
+            {
+                var d = B.Litters.First(x => x.LitterID == myId);
+                B.Litters.Remove(d);
+                var de = B.SaveChanges();
+                if  (de ==1)
+                {
+                    Reset(false);
+                }
+                else
+                {
+                    MessageBox.Show(strTableName + " delete failed");
+                }
+            }
+
+        }
     }
 }

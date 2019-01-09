@@ -110,7 +110,7 @@ namespace wfUI
                 //cboBreeder.Items.Clear();
                 cboDogOwner.Text = "__dogOwner";
                 //cboDogOwner.Items.Clear();
-                cboDogName.Text = "__dog";
+                //cboDogName.Text = "__dog";
                 //cboDogName.Items.Clear();
                 txtCoatColor.Text = string.Empty;
                 txtDogName.Text = string.Empty;
